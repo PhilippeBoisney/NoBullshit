@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NoBullshit</string>
+    <string name="category_android">Android</string>
+    <string name="category_unknown">Unknown</string>
+
+    <string name="type_full_time">Full Time</string>
+    <string name="type_part_time">Part-Time</string>
+    <string name="type_contract">Contract</string>
+    <string name="type_intern">Intern</string>
+    <string name="type_unknown">Unknown</string>
+
+</resources>

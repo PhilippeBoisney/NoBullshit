@@ -1,0 +1,17 @@
+.idea
+*.iml
+build
+target
+
+.gradle
+local.properties
+*.lock
+/app/snippets-api
+/backend/out
+NoBullshit/app/google-services.json
+
+.idea/modules/nobullshit.iml
+
+.idea/vcs.xml
+
+android/app/google-services.json

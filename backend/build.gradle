@@ -1,0 +1,49 @@
+buildscript {
+    ext.kotlin_version = '1.3.11'
+    ext.ktor_version = '1.0.1'
+    ext.appengine_version = '1.9.60'
+    ext.appengine_plugin_version = '1.3.4'
+    ext.gce_logback_version = '0.60.0-alpha'
+    ext.firestore_version = '0.74.0-beta'
+    ext.mockk_version = '1.8.13.kotlin13'
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.cloud.tools:appengine-gradle-plugin:$appengine_plugin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'war'
+apply plugin: 'com.google.cloud.tools.appengine'
+
+sourceSets {
+    main.kotlin.srcDirs = [ 'src/main/kotlin' ]
+    test.kotlin.srcDirs = [ 'test' ]
+}
+
+repositories {
+    jcenter()
+    maven { url "https://kotlin.bintray.com/ktor" }
+}
+
+dependencies {
+    // KOTLIN
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    // KTOR
+    compile "io.ktor:ktor-server-servlet:$ktor_version"
+    compile "io.ktor:ktor-html-builder:$ktor_version"
+    // APPENGIN
+    compile "com.google.appengine:appengine:$appengine_version"
+    // FREEMARKER
+    compile "io.ktor:ktor-freemarker:$ktor_version"
+    // FIRESTORE
+    compile "com.google.cloud:google-cloud-firestore:$firestore_version"
+    // TESTING
+    testCompile "io.ktor:ktor-server-test-host:$ktor_version"
+    testCompile "io.mockk:mockk:$mockk_version"
+}
+

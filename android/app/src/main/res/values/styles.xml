@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Base Application Theme
+     -->
+    <style name="Theme.NoBullshit" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">#fff</item>
+    </style>
+
+    <!--
+        Widget | Toolbar
+     -->
+    <style name="Widget.NoBullshit.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/Theme.NoBullshit</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="titleTextAppearance">@style/TextAppearance.NoBullshit.Toolbar</item>
+    </style>
+
+    <style name="TextAppearance.NoBullshit.Toolbar" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
+
+    <!--
+        Widget | TextView
+     -->
+    <style name="TextAppearance.NoBullshit.List.Title" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.NoBullshit.List.Company.Name" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+</resources>
