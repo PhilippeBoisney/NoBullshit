@@ -1,4 +1,4 @@
-![](https://app.bitrise.io/app/0e23389050120373.svg?token=HzU_3n5X7H0CMxgGPuvQXQ)
+![](https://app.bitrise.io/app/237ba3e50e067fbe.svg?token=-dV482cctBUy3uv9uBImvA)
 # No Bullshit - Perfect jobs only
 
 No Bullshit is an open source project that wants to help developers **find the perfect job**. An expert developer reviews each job submitted through the platform. We publish only ***the best***... 😎
