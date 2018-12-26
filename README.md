@@ -31,6 +31,11 @@ The backend sample can be run **locally** ([http://localhost:8080/](http://local
 
     ./deploy.sh YOUR_GAE_PROJECT_ID
 # Running tests
-If you want to run the tests :
+If you want to run the unit tests for the backend :
 
-    ./gradlew test
+    ./gradlew :backend:test
+
+If you want to run the instrumented tests for the android app :
+    
+    ./gradlew :android:connectedAndroidTest
+
