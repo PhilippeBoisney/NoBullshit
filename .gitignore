@@ -15,3 +15,17 @@ NoBullshit/app/google-services.json
 .idea/vcs.xml
 
 android/app/google-services.json
+
+android/gradle/wrapper/gradle-wrapper.jar
+
+android/gradle/wrapper/gradle-wrapper.properties
+
+android/gradlew
+
+android/gradlew.bat
+
+backend/.DS_Store
+
+backend/.DS_Store
+
+backend/.DS_Store

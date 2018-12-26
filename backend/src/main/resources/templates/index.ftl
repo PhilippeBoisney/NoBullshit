@@ -16,7 +16,7 @@
                 </p>
 
                 <p class="lead">
-                    <a href="#" class="btn btn-primary btn-lg btn-xs">See the jobs</a>
+                    <a href="https://play.google.com/store/apps/details?id=io.nobullshit.nobullshit" class="btn btn-primary btn-lg btn-xs">See the jobs</a>
                 </p>
             </@layout.contentLayout>
 

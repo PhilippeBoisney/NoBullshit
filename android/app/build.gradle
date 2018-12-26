@@ -10,15 +10,16 @@ android {
         applicationId "io.nobullshit.nobullshit"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 1 // Will be overridden by Bitrise
+        versionName "1.0.0-beta"
         testInstrumentationRunner "io.nobullshit.nobullshit.TIRunner"
     }
     buildTypes {
         debug {  }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     sourceSets {

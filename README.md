@@ -1,3 +1,4 @@
+![](https://app.bitrise.io/app/237ba3e50e067fbe.svg?token=-dV482cctBUy3uv9uBImvA)
 # No Bullshit - Perfect jobs only
 
 No Bullshit is an open source project that wants to help developers **find the perfect job**. An expert developer reviews each job submitted through the platform. We publish only ***the best***... 😎
@@ -10,7 +11,7 @@ This project is intented to show how to create a **full project** using Kotlin. 
 # Demo
 Because a picture is worth a thousand words :
  - 🌏The backend : [https://www.nobullshit.io/](https://www.nobullshit.io/)
- - 📱The mobile app : #
+ - 📱The mobile app : [Playstore](https://play.google.com/store/apps/details?id=io.nobullshit.nobullshit)
 
 # Where to start ?
 You want to contribute or understand what this is all about, but you don't know where to start? Here are some useful resources :
@@ -30,6 +31,11 @@ The backend sample can be run **locally** ([http://localhost:8080/](http://local
 
     ./deploy.sh YOUR_GAE_PROJECT_ID
 # Running tests
-If you want to run the tests :
+If you want to run the unit tests for the backend :
 
-    ./gradlew test
+    ./gradlew :backend:test
+
+If you want to run the instrumented tests for the android app :
+    
+    ./gradlew :android:connectedAndroidTest
+

@@ -1,16 +1,19 @@
 package io.nobullshit
 
-import com.google.cloud.firestore.Firestore
-import com.google.cloud.firestore.FirestoreOptions
 import freemarker.cache.ClassTemplateLoader
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.freemarker.FreeMarker
+import io.ktor.http.content.file
+import io.ktor.http.content.resources
+import io.ktor.http.content.static
+import io.ktor.http.content.staticRootFolder
 import io.ktor.routing.*
 import io.nobullshit.database.Database
 import io.nobullshit.route.index
 import io.nobullshit.route.styles
 import io.nobullshit.route.submitJob
+import java.io.File
 
 /*
 * Entry Point of the application as defined in resources/application.conf
@@ -41,6 +44,9 @@ fun Application.configureApplication(db: Database){
 */
 fun Application.registerRoutes(db: Database){
     routing {
+        static {
+            resources("web")
+        }
         styles()
         index()
         submitJob(db)
