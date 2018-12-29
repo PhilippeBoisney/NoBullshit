@@ -15,7 +15,7 @@ Because a picture is worth a thousand words :
  
 # Posts
 Some Medium posts about NoBullshit :
- - [Playing with Kotlin: <You know everything John Doe !>](#)
+ - [Playing with Kotlin: <You know everything John Doe !>](https://medium.com/@Phil_Boisney/playing-with-kotlin-you-know-everything-john-doe-8275a6e98a96)
 
 # Where to start ?
 You want to contribute or understand what this is all about, but you don't know where to start? Here are some useful resources :
