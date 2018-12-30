@@ -1,5 +1,6 @@
 ![](https://app.bitrise.io/app/237ba3e50e067fbe.svg?token=-dV482cctBUy3uv9uBImvA)
 # No Bullshit - Perfect jobs only
+![Screenshot](https://cdn-images-1.medium.com/max/2000/1*fn7gLL2rlQP2gRq9QjFAGQ.png)
 
 No Bullshit is an open source project that wants to help developers **find the perfect job**. An expert developer reviews each job submitted through the platform. We publish only ***the best***... 😎
 
