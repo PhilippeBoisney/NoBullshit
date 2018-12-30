@@ -6,12 +6,16 @@ No Bullshit is an open source project that wants to help developers **find the p
 This project is intented to show how to create a **full project** using Kotlin. Therefore, you'll find two main modules :
 
  - **backend** : Contains the [Ktor](https://ktor.io/) backend configured to run on [Google App Engine](https://cloud.google.com/appengine/?hl=fr). It also uses [Freemarker](https://freemarker.apache.org/) for Java/html template. Data are persisted in [Firestore](https://cloud.google.com/firestore/).
- - **android** : Contains the Android app written with Kotlin.
+ - **android** : Contains the Android app written with Kotlin. It also uses [FirebaseUI](https://github.com/firebase/FirebaseUI-Android), [Dagger2](https://google.github.io/dagger/android.html) & [Mockk](https://mockk.io/).
 
 # Demo
 Because a picture is worth a thousand words :
  - 🌏The backend : [https://www.nobullshit.io/](https://www.nobullshit.io/)
  - 📱The mobile app : [Playstore](https://play.google.com/store/apps/details?id=io.nobullshit.nobullshit)
+ 
+# Posts
+Some Medium posts about NoBullshit :
+ - [Playing with Kotlin: <You know everything John Doe !>](https://medium.com/@Phil_Boisney/playing-with-kotlin-you-know-everything-john-doe-8275a6e98a96)
 
 # Where to start ?
 You want to contribute or understand what this is all about, but you don't know where to start? Here are some useful resources :

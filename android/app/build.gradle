@@ -30,7 +30,7 @@ android {
 
 // allows mocking for classes w/o directly opening them for release builds
 allOpen {
-    annotation("io.nobullshit.nobullshit.testing.OpenForTesting")
+    annotation("io.nobullshit.nobullshit.testing.OpenClass")
 }
 
 dependencies {
