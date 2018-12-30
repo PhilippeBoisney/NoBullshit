@@ -1,7 +1,6 @@
 package io.nobullshit.nobullshit.ui.joblist
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.paging.PagedList
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
@@ -10,22 +9,19 @@ import com.firebase.ui.firestore.paging.LoadingState
 import io.nobullshit.nobullshit.R
 import io.nobullshit.nobullshit.base.BaseFragment
 import io.nobullshit.nobullshit.db.dao.JobDao
-import io.nobullshit.nobullshit.di.Injectable
 import io.nobullshit.nobullshit.extension.openBrowser
 import io.nobullshit.nobullshit.model.Job
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
 import kotlinx.android.synthetic.main.fragment_job_list.fragment_job_list_rv as recyclerView
 import kotlinx.android.synthetic.main.fragment_job_list.fragment_job_list_refresh as refreshLayout
-
-
 
 /**
  * A simple [BaseFragment] subclass that list [Job].
  *
  */
-class JobListFragment : BaseFragment(), Injectable {
+class JobListFragment : BaseFragment() {
 
-    @Inject lateinit var jobDao: JobDao
+    val jobDao: JobDao by inject()
 
     override fun getLayoutById(): Int = R.layout.fragment_job_list
 

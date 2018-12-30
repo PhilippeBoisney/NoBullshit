@@ -1,7 +1,6 @@
 package io.nobullshit.nobullshit.extension
 
 import android.net.Uri
-import android.util.Log
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 
@@ -14,5 +13,7 @@ fun Fragment.openBrowser(url: String){
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
         customTabsIntent.launchUrl(context, Uri.parse(url))
-    } catch (exception: Exception) {  }
+    } catch (exception: Exception) {
+
+    }
 }

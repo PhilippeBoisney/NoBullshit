@@ -1,20 +1,12 @@
 package io.nobullshit.nobullshit.base
 
-import android.app.Activity
 import android.app.Application
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import io.nobullshit.nobullshit.di.AppInjector
-import javax.inject.Inject
+import io.nobullshit.nobullshit.di.appComponents
+import org.koin.android.ext.android.startKoin
 
-class BaseApplication: Application(), HasActivityInjector {
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
-
+class BaseApplication: Application() {
     override fun onCreate() {
         super.onCreate()
-        AppInjector.init(this)
+        startKoin(this, appComponents)
     }
-
-    override fun activityInjector() = dispatchingAndroidInjector
 }
