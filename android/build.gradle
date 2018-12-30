@@ -8,7 +8,7 @@ buildscript {
     ext.android_pagging_version = '2.1.0-rc01'
     ext.firebase_version = '16.0.6'
     ext.firestore_ui_version = '4.3.0'
-    ext.dagger_version = '2.16'
+    ext.koin_version = '1.0.2'
     ext.glide_version = '4.8.0'
     ext.custom_tab_version = '1.0.0'
 

@@ -1,40 +1,30 @@
 package io.nobullshit.nobullshit.ui.joblist
 
-import android.content.Intent
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.intent.Intents.intended
-import androidx.test.espresso.intent.Intents.intending
-import androidx.test.espresso.intent.matcher.IntentMatchers.*
-import androidx.test.espresso.intent.rule.IntentsTestRule
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import com.google.firebase.firestore.*
-import io.mockk.*
 import io.nobullshit.nobullshit.Datasets
-import io.nobullshit.nobullshit.Datasets.SINGLE_JOB
 import io.nobullshit.nobullshit.R
 import io.nobullshit.nobullshit.db.dao.JobDao
+import io.nobullshit.nobullshit.di.remoteDataSourceTestModule
 import io.nobullshit.nobullshit.extension.getCategoryTitle
 import io.nobullshit.nobullshit.extension.getTypeTitle
-import io.nobullshit.nobullshit.model.Company
 import io.nobullshit.nobullshit.model.Job
 import io.nobullshit.nobullshit.testing.SingleFragmentActivity
 import io.nobullshit.nobullshit.util.*
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.not
-
+import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
-
 import org.junit.Rule
+import org.koin.standalone.StandAloneContext.loadKoinModules
+import org.koin.standalone.StandAloneContext.stopKoin
+import org.koin.dsl.module.Module
 
 /**
  * Instrumented tests for [JobListFragment]
@@ -45,11 +35,16 @@ class TIJobList {
 
     @Rule
     @JvmField
-    val activityRule = IntentsTestRule(SingleFragmentActivity::class.java, true, true)
+    val activityRule = ActivityTestRule(SingleFragmentActivity::class.java, true, true)
+
+    @After
+    fun tearDown(){
+        stopKoin()
+    }
 
     @Test
     fun testLoadingSingleJob() {
-        this.configureFragmentBeforeTest(mockQuery(Job::class.java, Datasets.SINGLE_JOB))
+        this.configureCustomDependencies(mockQuery(Job::class.java, Datasets.SINGLE_JOB))
 
         onView(withId(R.id.fragment_job_list_refresh)).check(matches(not(isRefreshing())))
         onView(withId(R.id.fragment_job_list_rv)).check(matches((hasItemCount(1))))
@@ -62,7 +57,7 @@ class TIJobList {
 
     @Test
     fun testLoadingMultipleJob() {
-        this.configureFragmentBeforeTest(mockQuery(Job::class.java, *Datasets.MULTIPLE_JOBS))
+        this.configureCustomDependencies(mockQuery(Job::class.java, *Datasets.MULTIPLE_JOBS))
 
         onView(withId(R.id.fragment_job_list_refresh)).check(matches(not(isRefreshing())))
         onView(withId(R.id.fragment_job_list_rv)).check(matches((hasItemCount(30))))
@@ -70,36 +65,23 @@ class TIJobList {
 
     @Test
     fun testLoadingNothing() {
-        this.configureFragmentBeforeTest(mockQuery(Job::class.java))
+        this.configureCustomDependencies(mockQuery(Job::class.java))
 
         onView(withId(R.id.fragment_job_list_refresh)).check(matches(not(isRefreshing())))
         onView(withId(R.id.fragment_job_list_rv)).check(matches((hasItemCount(0))))
     }
 
-    @Test
-    fun testClickOnJob() {
-        this.configureFragmentBeforeTest(mockQuery(Job::class.java, Datasets.SINGLE_JOB))
-
-        onView(withId(R.id.fragment_job_list_rv)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-        intended(hasAction(Intent.ACTION_VIEW))
-        intended(hasData(Datasets.SINGLE_JOB.url))
-    }
-
     // ---
 
     /**
-     * Create a new [JobListFragment]
-     * and mock the [JobDao] with custom response [Query].
+     * Configure custom [Module] for each [Test]
+     * and provide a [JobDao] with custom mocked response [Query].
+     *
      * The fragment will be set inside a fake activity [SingleFragmentActivity]
      */
-    private fun configureFragmentBeforeTest(query: Query) {
-        val fragment = JobListFragment().apply {
-            val firestore = mockk<FirebaseFirestore>()
-            jobDao = object : JobDao(firestore) {
-                override fun listApprovedJobs() = query
-            }
-        }
-        activityRule.activity.setFragment(fragment)
+    private fun configureCustomDependencies(query: Query) {
+        loadKoinModules(remoteDataSourceTestModule(query))
+        this.activityRule.activity.setFragment(JobListFragment())
     }
 }
 
