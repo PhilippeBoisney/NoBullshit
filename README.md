@@ -11,7 +11,7 @@ This project is intented to show how to create a **full project** using Kotlin. 
 
 # Demo
 Because a picture is worth a thousand words :
- - 🌏The backend : [https://www.nobullshit.io/](https://www.nobullshit.io/)
+ - 🌏The backend : [https://nobullshit.appspot.com/](https://nobullshit.appspot.com/)
  - 📱The mobile app : [Playstore](https://play.google.com/store/apps/details?id=io.nobullshit.nobullshit)
  
 # Posts
